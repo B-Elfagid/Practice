@@ -1,21 +1,27 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-function Greeting(){
-  return (
-    <div>
-      <Person />
-     <h4>This is Betty and This is My first Component</h4>
-     </div>
-      )
+import './index.css';
+
+function BookList(){
+  return <section> <Book /> <Book /> <Book /></section>
 }
 
-const Person = () => {
-  return <h2>Betty Davide</h2>
+const Book = () => {
+  return <article>
+     <Image></Image>
+     <Title />
+     <Author />
+  </article>
 }
-// const Greeting = () => {
-//   return React.createElement('h1', {}, 'hello')
-// }
 
-ReactDom.render(<Greeting />, document.getElementById('root'))
+const Image = () => (
+  <img src="https://images-na.ssl-images-amazon.com/images/I/71rdsaOMvVL._AC_UL127_SR127,127_.jpg" 
+  alt="" />
+)
+
+const Title = () => <h1>Reminders of him</h1> 
+const Author = () => <h2>Colleen Hoover</h2>
+
+ReactDom.render(<BookList />, document.getElementById('root'))
 
 
