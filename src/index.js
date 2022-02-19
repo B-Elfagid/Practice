@@ -1,17 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
+function Greeting(){
+  return (
+    <div>
+      <Person />
+     <h4>This is Betty and This is My first Component</h4>
+     </div>
+      )
+}
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const Person = () => {
+  return <h2>Betty Davide</h2>
+}
+// const Greeting = () => {
+//   return React.createElement('h1', {}, 'hello')
+// }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDom.render(<Greeting />, document.getElementById('root'))
+
+
