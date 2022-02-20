@@ -3,39 +3,59 @@ import ReactDom from 'react-dom';
 import './index.css';
 
 // setup vars
-
-const firstBook = {
-  img: 'https://images-na.ssl-images-amazon.com/images/I/71rdsaOMvVL._AC_UL127_SR127,127_.jpg',
+const books = [
+{
+  id:1,
+  img: 'https://images-na.ssl-images-amazon.com/images/I/617uZq23IPL._AC_UL604_SR604,400_.jpg',
   title: 'Reminders of him',
-  author: 'Colleen Hoover'
-}
+  author: 'Colleen Hoover',
+},
 
-const secondBook = {
-  img: 'https://images-na.ssl-images-amazon.com/images/I/51Zu0ZwT0jL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
+{
+  id:2,
+  img: 'https://images-na.ssl-images-amazon.com/images/I/81s0B6NYXML._AC_UL604_SR604,400_.jpg',
   title: 'It Ends With Us',
-  author: 'Colleen Hoover'
-}
+  author: 'Colleen Hoover',
+},
+];
+
+
+
 
 
 
 function BookList(){
   return(
   <section className='booklist'> 
-     <Book img={firstBook.img} title={firstBook.title} author={firstBook.author} /> 
-     <Book img={secondBook.img} title={secondBook.title} author={secondBook.author}/>
+     {books.map((book)=>{
+       return <Book key={book.id} book={book}/>
+     })}
   </section>) 
 }
 
 
-
+// const Book = ({img, title, author, children}) => {
 const Book = (props) => {
-  const { img, title, author } = props;
+  const { img, title, author } = props.book;
+
+  const handleClick = () => {
+    
+  }
+
+  const complexExample = (author) => {
+   console.log(author);
+  }
+
   return(
-   <article className='book'>
+   <article 
+   className='book' 
+   onMouseOver={() => {console.log(title)}}>
     <img src= {img}
      alt="" />
     <h1>{title}</h1> 
     <h4>{author} </h4>
+    <button type='button' onClick={handleClick}>Click Me</button>
+    <button type='button' onClick={() => complexExample(author)}>Complex Example</button>
   </article>
   )
 }
